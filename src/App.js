@@ -2,11 +2,11 @@
 import DisplayJobs from './containers/DisplayJobs';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createJob } from './redux/actionCreators';
+import { setJobs } from './redux/actionCreators';
 
 class App extends Component {
   compenentDidMount() {
-    console.log('this.props');
+    this.props.setJobs();
   }
 
   render() {
@@ -24,4 +24,4 @@ class App extends Component {
 //   createJob: () => dispatchEvent({ type: 'CREATE_JOB' }),
 // });
 
-export default connect(null, { createJob })(App);
+export default connect(null, { setJobs })(App);
