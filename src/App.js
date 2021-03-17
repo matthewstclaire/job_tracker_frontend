@@ -1,19 +1,25 @@
 // import './App.css';
 import DisplayJobs from './containers/DisplayJobs';
+import JobsPage from './containers/JobsPage';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setJobs } from './redux/actionCreators';
+import { fetchJobs } from './redux/actionCreators';
+import { Switch, Route } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
-  compenentDidMount() {
-    this.props.setJobs();
+  componentDidMount() {
+    this.props.fetchJobs();
   }
 
   render() {
     return (
       <>
-        <h1>Title</h1>
-        <DisplayJobs />
+        <h1>JobTracker</h1>
+        <Switch>
+          <Route path="/jobs/:id" component={JobsPage} />
+          <Route path="/jobs" component={DisplayJobs} />
+        </Switch>
       </>
     );
   }
@@ -24,4 +30,4 @@ class App extends Component {
 //   createJob: () => dispatchEvent({ type: 'CREATE_JOB' }),
 // });
 
-export default connect(null, { setJobs })(App);
+export default connect(null, { fetchJobs })(App);
