@@ -12,3 +12,20 @@ export const fetchJobs = () => {
       );
   };
 };
+
+export const setSelectedJob = id => {
+  return dispatch => {
+    fetch('http://localhost:3000/jobs/' + id)
+      .then(resp => resp.json())
+      .then(jobs =>
+        dispatch({
+          type: 'SET_SELECTED_JOB',
+          payload: jobs,
+        })
+      );
+  };
+};
+
+export const unsetJob = () => {
+  'UNSET_JOB';
+};
