@@ -13,10 +13,9 @@ class JobPage extends Component {
     this.props.unsetJob();
   }
 
-  render() {
-    // const { title } = this.props;
+  renderPage = () => {
     return (
-      <div className="Show">
+      <>
         <h1>Your Job</h1>
         <h2>{this.props.title}</h2>
         <h3>{this.props.company}</h3>
@@ -26,6 +25,18 @@ class JobPage extends Component {
         <p>{this.props.applied_on}</p>
         <p>{this.props.next_steps}</p>
         <button onClick={this.props.history.goBack}>All Jobs</button>
+      </>
+    );
+  };
+
+  renderSpinner = () => {
+    return <div className="loader"></div>;
+  };
+
+  render() {
+    return (
+      <div className="show">
+        {this.props.id ? this.renderPage() : this.renderSpinner()}
       </div>
     );
   }

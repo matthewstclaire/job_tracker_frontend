@@ -26,6 +26,6 @@ export const setSelectedJob = id => {
   };
 };
 
-export const unsetJob = () => {
-  'UNSET_JOB';
-};
+export const unsetJob = () => ({
+  type: 'UNSET_JOB',
+});
