@@ -20,8 +20,10 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loginForm: {
+          //if the payload's name is user
+          // update undername key in the loginForm in state with new payload value
           ...state.loginForm,
-          [action.payload.name]: action.payoad,
+          [action.payload.name]: action.payload.value,
         },
       };
     default:
