@@ -57,3 +57,22 @@ export const sendSignup = userData => {
       );
   };
 };
+
+export const sendLogin = userData => {
+  return dispatch => {
+    fetch('http://localhost:3000/login', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+      .then(response => response.json())
+      .then(response =>
+        dispatch({
+          type: 'SET_USER',
+          payload: { user: response.user },
+        })
+      );
+  };
+};

@@ -1,12 +1,12 @@
 const initialLoginForm = {
-  name: '',
+  username: '',
   password: '',
   passwordConfirmation: '',
 };
 
 const initialState = {
   id: null,
-  name: null,
+  username: null,
   signup: false,
   loginForm: initialLoginForm,
 };
@@ -26,6 +26,9 @@ const userReducer = (state = initialState, action) => {
           [action.payload.name]: action.payload.value,
         },
       };
+    case 'SET_USER':
+      console.log({ ...state, ...action.payload.user });
+      return { ...state, ...action.payload.user };
     default:
       return { ...state };
   }

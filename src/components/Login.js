@@ -4,36 +4,45 @@ import {
   sendSignup,
   toggleSignup,
   handleLoginFormChange,
+  sendLogin,
 } from '../redux/actionCreators';
 // import { handleLoginFormChange } from '../redux/actionCreators';
 
 const Login = props => {
-  const { signup, toggleSignup, form, handleLoginFormChange } = props;
-  const { name, password, passwordConfirmation } = form;
+  const {
+    signup,
+    toggleSignup,
+    form,
+    handleLoginFormChange,
+    sendSignup,
+    sendLogin,
+  } = props;
+  const { username, password, passwordConfirmation } = form;
+
   const onSubmit = e => {
     e.preventDefault();
     if (signup) {
       if (password === passwordConfirmation) {
-        sendSignup({ name: name, password: password });
+        sendSignup({ username: username, password: password });
       } else {
         alert("Passwords don't match!");
       }
+    } else {
+      sendLogin({ username: username, password: password });
     }
   };
 
-  console.log(props);
-
   return (
     <>
+      <h1>{signup ? 'Sign up!' : 'Login'}</h1>
       <div className="loginForm">
-        <h1>{signup ? 'Sign up!' : 'Login'}</h1>
         <form onSubmit={onSubmit}>
           <label>
             Name:
             <input
               type="text"
-              name="name"
-              value={name}
+              name="username"
+              value={username}
               onChange={handleLoginFormChange}
             />
           </label>
@@ -49,17 +58,17 @@ const Login = props => {
           {signup && (
             <>
               <label>
-                Confirm Password:
+                Password Confirmation:
                 <input
                   type="password"
-                  name="passwordConfirm"
+                  name="passwordConfirmation"
                   value={passwordConfirmation}
                   onChange={handleLoginFormChange}
                 />
               </label>
-              <input type="submit" value="Submit" />
             </>
           )}
+          <input type="submit" value="submit" />
         </form>
         <button onClick={toggleSignup}>
           Or...{signup ? 'Login' : 'Sign up!'}
@@ -78,4 +87,5 @@ export default connect(mapStateToProps, {
   toggleSignup,
   handleLoginFormChange,
   sendSignup,
+  sendLogin,
 })(Login);
