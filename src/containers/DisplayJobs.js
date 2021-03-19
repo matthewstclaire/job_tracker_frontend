@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DisplayJob from './components/DisplayJob';
+import DisplayJob from '../components/DisplayJob';
 
 const DisplayJobs = props => {
   console.log(props.jobs);

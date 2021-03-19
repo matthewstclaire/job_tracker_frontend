@@ -8,12 +8,12 @@ const nullJob = {
   applied_on: '',
 };
 
-const initialJobState = {
+const initialState = {
   jobs: [],
   selectedJob: nullJob,
 };
 
-const jobsReducer = (state = initialJobState, action) => {
+const jobsReducer = (state = initialState, action) => {
   // console.log('Jobs reducer', state);
   switch (action.type) {
     case 'SET_JOBS':

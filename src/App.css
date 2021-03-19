@@ -16,12 +16,12 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  justify-content: stretch;
+  justify-content: space-between;
 }
 
-.jobItem {
+/* .jobItem {
   flex-grow: 1;
-}
+} */
 
 .jobContainer:hover {
   background: tomato;

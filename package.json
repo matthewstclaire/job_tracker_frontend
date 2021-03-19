@@ -13,7 +13,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^2.1.8",
     "react-table": "^7.6.3",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "strftime": "^0.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -29,3 +29,12 @@ export const setSelectedJob = id => {
 export const unsetJob = () => ({
   type: 'UNSET_JOB',
 });
+
+export const toggleSignup = () => ({
+  type: 'TOGGLE_SIGNUP',
+});
+
+export const handleLoginFormChange = e => ({
+  type: 'LOGIN_FORM_CHANGE',
+  payload: { name: e.target.name, value: e.target.value },
+});
