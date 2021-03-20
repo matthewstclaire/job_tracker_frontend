@@ -49,12 +49,13 @@ export const sendSignup = userData => {
       body: JSON.stringify(userData),
     })
       .then(response => response.json())
-      .then(response =>
+      .then(response => {
+        localStorage.token = response.token;
         dispatch({
           type: 'SET_USER',
           payload: { user: response.user },
-        })
-      );
+        });
+      });
   };
 };
 
@@ -68,11 +69,12 @@ export const sendLogin = userData => {
       body: JSON.stringify(userData),
     })
       .then(response => response.json())
-      .then(response =>
+      .then(response => {
+        localStorage.token = response.token;
         dispatch({
           type: 'SET_USER',
           payload: { user: response.user },
-        })
-      );
+        });
+      });
   };
 };
