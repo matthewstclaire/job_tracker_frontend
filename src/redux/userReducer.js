@@ -1,37 +1,36 @@
+
 const initialLoginForm = {
-  username: '',
-  password: '',
-  passwordConfirmation: '',
-};
+  username: "",
+  password: "",
+  passwordConfirmation: ""
+}
 
 const initialState = {
   id: null,
   username: null,
   signup: false,
-  loginForm: initialLoginForm,
-};
+  loginForm: initialLoginForm
+}
 
-const userReducer = (state = initialState, action) => {
-  // console.log('Jobs reducer', state);
-  switch (action.type) {
-    case 'TOGGLE_SIGNUP':
-      return { ...state, signup: !state.signup };
-    case 'LOGIN_FORM_CHANGE':
-      return {
-        ...state,
-        loginForm: {
-          //if the payload's name is user
-          // update undername key in the loginForm in state with new payload value
-          ...state.loginForm,
-          [action.payload.name]: action.payload.value,
-        },
-      };
-    case 'SET_USER':
-      console.log({ ...state, ...action.payload.user });
-      return { ...state, ...action.payload.user };
+const userReducer = (state=initialState, action) => {
+  switch (action.type){
+    case "TOGGLE_SIGNUP":
+      return {...state, signup: !state.signup}
+    case "LOGIN_FORM_CHANGE":
+      return {...state, loginForm: {
+        ...state.loginForm,
+        // if the payload's name is "username", this will update the
+        // username key in the loginForm in state with the new payload value
+        [action.payload.name]: action.payload.value
+      }}
+    case "SET_USER":
+      console.log({...state, ...action.payload.user})
+      return {...state, ...action.payload.user}
+    case "LOGOUT":
+      return {...state, username: null, id: null}
     default:
-      return { ...state };
+      return {...state}
   }
-};
+}
 
-export default userReducer;
+export default userReducer

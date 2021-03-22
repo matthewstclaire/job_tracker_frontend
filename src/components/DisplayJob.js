@@ -15,14 +15,14 @@ const DisplayJob = props => {
       </div>
 
       <div className="jobItem dateApplied">
-        <p>{props.date_applied}</p>
+        <p>{props.dateApplied}</p>
       </div>
 
       <div className="jobItem interest">
         <p>{props.interest}</p>
       </div>
       <div className="jobItem">
-        <p>{props.applied_on}</p>
+        <p>{props.appliedOn}</p>
       </div>
       <div className="jobItem">
         <button>

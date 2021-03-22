@@ -19,11 +19,11 @@ class JobPage extends Component {
         <h1>Your Job</h1>
         <h2>{this.props.title}</h2>
         <h3>{this.props.company}</h3>
-        <p>{this.props.date_applied}</p>
+        <p>{this.props.dateApplied}</p>
         <p>{this.props.interest}</p>
         <p>{this.props.open}</p>
-        <p>{this.props.applied_on}</p>
-        <p>{this.props.next_steps}</p>
+        <p>{this.props.appliedOn}</p>
+        <p>{this.props.nextSteps}</p>
         <button onClick={this.props.history.goBack}>All Jobs</button>
       </>
     );

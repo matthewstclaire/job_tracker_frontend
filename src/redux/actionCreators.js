@@ -2,7 +2,7 @@ export const createJob = () => ({ type: 'CREATE_JOB' });
 
 export const fetchJobs = () => {
   return dispatch => {
-    fetch('http://localhost:3000/jobs')
+    fetch('http://localhost:3001/jobs')
       .then(resp => resp.json())
       .then(jobs =>
 
@@ -16,7 +16,7 @@ export const fetchJobs = () => {
 
 export const setSelectedJob = id => {
   return dispatch => {
-    fetch('http://localhost:3000/jobs/' + id)
+    fetch('http://localhost:3001/jobs/' + id)
       .then(resp => resp.json())
       .then(jobs =>
         dispatch({
@@ -40,62 +40,63 @@ export const handleLoginFormChange = e => ({
   payload: { name: e.target.name, value: e.target.value },
 });
 
-export const sendSignup = userData => {
+export const sendSignup = (userData) => {
   return dispatch => {
-    fetch('http://localhost:3000/users', {
+    // localhost:3000/users
+    fetch("http://localhost:3001/login", {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
     })
-      .then(response => response.json())
-      .then(response => {
-        localStorage.token = response.token;
-        dispatch({
-          type: 'SET_USER',
-          payload: { user: response.user },
-        });
-      });
-  };
-};
+    .then(response => response.json())
+    .then(response => {
+      localStorage.token = response.token
+      dispatch({
+      type: "SET_USER",
+      payload: {user: response.user}
+    })
+  })
+  }
+}
 
-export const sendLogin = userData => {
+export const sendLogin = (userData) => {
   return dispatch => {
-    fetch('http://localhost:3000/login', {
+    // localhost:3000/users
+    fetch("http://localhost:3001/login", {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
     })
-      .then(response => response.json())
-      .then(response => {
-        localStorage.token = response.token;
-        dispatch({
-          type: 'SET_USER',
-          payload: { user: response.user },
-        });
-      });
-  };
-};
+    .then(response => response.json())
+    .then(response => {
+      localStorage.token = response.token
+      dispatch({
+      type: "SET_USER",
+      payload: {user: response.user}
+    })
+  })
+  }
+}
 
 export const autoLogin = () => {
   return dispatch => {
-    fetch('http://localhost:3000/autologin', {
+    // localhost:3000/users
+    fetch("http://localhost:3001/autologin", {
       method: 'POST', // or 'PUT'
       headers: {
-        // Allowing us to call current user method on any request using a token
-        // in the headers because we can throw it into any request we want
         'Authorization': localStorage.token,
       },
     })
-      .then(response => response.json())
-      .then(response => {
-        dispatch({
-          type: 'SET_USER',
-          payload: { user: response.user },
-        });
-      });
-  };
-};
+    .then(response => response.json())
+    .then(response => {
+      dispatch({
+      type: "SET_USER",
+      payload: {user: response.user}
+    })
+  })
+  }
+}

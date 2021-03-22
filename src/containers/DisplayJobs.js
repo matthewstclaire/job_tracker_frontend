@@ -5,7 +5,8 @@ import DisplayJob from '../components/DisplayJob';
 const DisplayJobs = props => {
   console.log(props.jobs);
   return (
-    
+
+
     <div className="displayedJobs">
       {props.jobs.map(job => (
         <DisplayJob key={job.id} {...job} />
