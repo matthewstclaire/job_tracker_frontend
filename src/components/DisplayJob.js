@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplayJob = props => {
+  
+
   return (
     <div className="jobContainer">
       <div className="jobItem title">

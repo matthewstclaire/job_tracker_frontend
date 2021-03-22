@@ -5,6 +5,7 @@ export const fetchJobs = () => {
     fetch('http://localhost:3000/jobs')
       .then(resp => resp.json())
       .then(jobs =>
+
         dispatch({
           type: 'SET_JOBS',
           payload: jobs,
@@ -71,6 +72,26 @@ export const sendLogin = userData => {
       .then(response => response.json())
       .then(response => {
         localStorage.token = response.token;
+        dispatch({
+          type: 'SET_USER',
+          payload: { user: response.user },
+        });
+      });
+  };
+};
+
+export const autoLogin = () => {
+  return dispatch => {
+    fetch('http://localhost:3000/autologin', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        // Allowing us to call current user method on any request using a token
+        // in the headers because we can throw it into any request we want
+        'Authorization': localStorage.token,
+      },
+    })
+      .then(response => response.json())
+      .then(response => {
         dispatch({
           type: 'SET_USER',
           payload: { user: response.user },

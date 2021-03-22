@@ -4,12 +4,13 @@ import JobsPage from './containers/JobsPage';
 import Login from './components/Login';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchJobs } from './redux/actionCreators';
+import { fetchJobs, autoLogin } from './redux/actionCreators';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
   componentDidMount() {
+    localStorage.token && this.props.autoLogin();
     this.props.fetchJobs();
   }
 
@@ -37,4 +38,4 @@ const mapStateToProps = state => ({ user: state.user });
 //   createJob: () => dispatchEvent({ type: 'CREATE_JOB' }),
 // });
 
-export default connect(mapStateToProps, { fetchJobs })(App);
+export default connect(mapStateToProps, { fetchJobs, autoLogin })(App);
