@@ -1,12 +1,14 @@
 import DisplayJobs from './containers/DisplayJobs';
 import JobsPage from './containers/JobsPage';
 import Login from './components/Login';
-// import CreateJob from './components/CreateJob';
+import JobForm from './components/JobForm';
+import About from './components/About'
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchJobs, autoLogin } from './redux/actionCreators';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
+import NavBarContainer from './containers/NavBarContainer';
 
 class App extends Component {
   componentDidMount() {
@@ -19,12 +21,19 @@ render() {
   return (
     <>
       <h1>JobTracker</h1>
-      {this.props.user.id 
+      <NavBarContainer />
+      {true
       ? 
         <>
         <Switch>
+          
+          
+          <Route path="/create" component={JobForm} />
           <Route path="/jobs/:id" component={JobsPage} />
           <Route path="/jobs" component={DisplayJobs} />
+          
+          <Route  path="/about" component={ About }/>
+          <Route path="/" component={ DisplayJobs } />
         </Switch>
         </>
        : 

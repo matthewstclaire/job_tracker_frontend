@@ -2,7 +2,7 @@ export const createJob = () => ({ type: 'CREATE_JOB' });
 
 export const fetchJobs = () => {
   return dispatch => {
-    fetch('http://localhost:3001/jobs')
+    fetch('http://localhost:3000/jobs')
       .then(resp => resp.json())
       .then(jobs =>
 
@@ -15,8 +15,9 @@ export const fetchJobs = () => {
 };
 
 export const setSelectedJob = id => {
+  
   return dispatch => {
-    fetch('http://localhost:3001/jobs/' + id)
+    fetch('http://localhost:3000/jobs/' + id)
       .then(resp => resp.json())
       .then(jobs =>
         dispatch({
@@ -43,7 +44,7 @@ export const handleLoginFormChange = e => ({
 export const sendSignup = (userData) => {
   return dispatch => {
     // localhost:3000/users
-    fetch("http://localhost:3001/login", {
+    fetch("http://localhost:3000/login", {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +65,7 @@ export const sendSignup = (userData) => {
 export const sendLogin = (userData) => {
   return dispatch => {
     // localhost:3000/users
-    fetch("http://localhost:3001/login", {
+    fetch("http://localhost:3000/login", {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +86,7 @@ export const sendLogin = (userData) => {
 export const autoLogin = () => {
   return dispatch => {
     // localhost:3000/users
-    fetch("http://localhost:3001/autologin", {
+    fetch("http://localhost:3000/autologin", {
       method: 'POST', // or 'PUT'
       headers: {
         'Authorization': localStorage.token,
@@ -100,3 +101,8 @@ export const autoLogin = () => {
   })
   }
 }
+
+export const reviewFormChange = e => ({
+  type: 'REVIEW_FORM_CHANGE',
+  payload: { name: e.target.name, value: e.target.value },
+});

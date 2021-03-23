@@ -8,9 +8,20 @@ const nullJob = {
   applied_on: '',
 };
 
+const nullJobForm = {
+  title: '',
+  date_applied: '',
+  company: '',
+  next_steps: '',
+  interest: 5,
+  open: true,
+  applied_on: '',
+}
+
 const initialState = {
   jobs: [],
   selectedJob: nullJob,
+  jobForm: nullJobForm
 };
 
 const jobsReducer = (state = initialState, action) => {
@@ -22,6 +33,11 @@ const jobsReducer = (state = initialState, action) => {
       return { ...state, selectedJob: action.payload };
     case 'UNSET_JOB':
       return { ...state, selectedJob: nullJob };
+    case "JOB_FORM_CHANGE":
+      return {...state, jobForm: {
+        ...state.jobForm,
+        [action.payload.name]: action.payload.value
+      }}
     default:
       return { ...state };
   }
