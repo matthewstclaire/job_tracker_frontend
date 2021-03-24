@@ -1,21 +1,21 @@
 const nullJob = {
   title: '',
-  date_applied: '',
+  dateApplied: '',
   company: '',
-  next_steps: '',
+  nextSteps: '',
   interest: '',
   open: false,
-  applied_on: '',
+  appliedOn: '',
 };
 
 const nullJobForm = {
   title: '',
-  date_applied: '',
+  dateApplied: '',
   company: '',
-  next_steps: '',
+  nextSteps: '',
   interest: 5,
   open: true,
-  applied_on: '',
+  appliedOn: '',
 }
 
 const initialState = {
@@ -33,11 +33,15 @@ const jobsReducer = (state = initialState, action) => {
       return { ...state, selectedJob: action.payload };
     case 'UNSET_JOB':
       return { ...state, selectedJob: nullJob };
-    case "JOB_FORM_CHANGE":
+
+    case "ADD_JOB":
       return {...state, jobForm: {
         ...state.jobForm,
+        // if the payload's name is "content", this will update the
+        // content key in the reviewForm in state with the new payload value
         [action.payload.name]: action.payload.value
       }}
+
     default:
       return { ...state };
   }
