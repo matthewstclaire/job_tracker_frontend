@@ -6,25 +6,25 @@ const DisplayJob = props => {
 
   return (
     <div className="jobContainer">
-      <div className="jobItem title">
+      <div className="job-item-title">
         <p>{props.title}</p>
       </div>
 
-      <div className="jobItem company">
+      <div className="job-item-company">
         <p>{props.company}</p>
       </div>
 
-      <div className="jobItem dateApplied">
+      <div className="job-item-dateApplied">
         <p>{props.dateApplied}</p>
       </div>
 
-      <div className="jobItem interest">
+      <div className="job-item-interest">
         <p>{props.interest}</p>
       </div>
-      <div className="jobItem">
+      <div className="job-item-appliedOn">
         <p>{props.appliedOn}</p>
       </div>
-      <div className="jobItem">
+      <div className="job-item">
         <button>
           <Link to={'jobs/' + props.id}>More Info</Link>
         </button>

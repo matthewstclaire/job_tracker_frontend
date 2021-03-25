@@ -1,3 +1,4 @@
+import Logo from "./logo.png"
 import DisplayJobs from './containers/DisplayJobs';
 import JobsPage from './containers/JobsPage';
 import Login from './components/Login';
@@ -20,7 +21,7 @@ class App extends Component {
 render() {
   return (
     <>
-      <h1>JobTracker</h1>
+      <img src={Logo} alt="Tigerhead logo"/>
       <NavBarContainer />
       {true
       ? 
@@ -30,7 +31,6 @@ render() {
           <Route path="/create" component={JobForm} />
           <Route path="/jobs/:id" component={JobsPage} />
           <Route path="/jobs" component={DisplayJobs} />
-          
           <Route  path="/about" component={ About }/>
           <Route path="/" component={ DisplayJobs } />
         </Switch>

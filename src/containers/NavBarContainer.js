@@ -1,4 +1,5 @@
 import React from 'react'
+import Tiny from "./tiny.png"
 // import HomeLink from '../components/navcomps/HomeLink'
 // import CreateJobLink from '../components/navcomps/CreateJobLink'
 // import JobsLink from '../components/navcomps/JobsLink'
@@ -37,13 +38,13 @@ import React from 'react'
 class NavBarContainer extends React.Component{
     render() {
         return (
-            <div>
-              <ul id="nav">
+            <div className="navbar">
+              <ul className="menu">
+              {/* <li><img src={Tiny} alt="Tiny Tiger Head" /></li> */}
                 <li><a href="/">Home</a></li>
                 <li><a href="/create">Add Job</a></li>
                 <li><a href="/about">About</a></li>
-                {/* <li><a href="/logout">Logout</a></li> */}
-                
+                <li><a href="/logout">Logout</a></li>
               </ul>
             </div>
         );

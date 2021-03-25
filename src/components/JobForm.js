@@ -7,7 +7,6 @@ const JobForm = (props) => {
   // const { title, dateApplied, company, interest, appliedOn, nextSteps } = props.form
 
   const onSubmit = (e) => {
-    console.log(props.form.jobForm)
     e.preventDefault()
     props.submitNewJob(props.form.jobForm)
     alert("New Job Submitted Successfully")
