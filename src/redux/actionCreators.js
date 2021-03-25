@@ -125,6 +125,19 @@ export const submitNewJob = (newJobData) => {
   }
 }
 
+export const logout = () => {
+  return dispatch => {
+    localStorage.clear("token")
+    dispatch({type: "LOGOUT"})
+  }
+}
+
+export const handleSearchFormChange = e => ({
+  type: 'FILTERS_FORM_CHANGE',
+  payload: { name: e.target.name, value: e.target.value },
+});
+
+
 // export const submitNewJob = (jobData) => {
 //   return dispatch => {
 //     fetch('http://localhost:3000/jobs/', {

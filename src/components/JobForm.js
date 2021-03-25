@@ -10,6 +10,7 @@ const JobForm = (props) => {
     console.log(props.form.jobForm)
     e.preventDefault()
     props.submitNewJob(props.form.jobForm)
+    alert("New Job Submitted Successfully")
   }
 
         return(
@@ -27,10 +28,20 @@ const JobForm = (props) => {
                 <label>Company</label>
                 <input type="text" name="company" value={props.company} onChange={props.jobFormChange} />
               </p>
-              <p>
+              {/* <p>
                 <label>Interest Level</label>
                 <input type="number" name="interest" value={props.interest} onChange={props.jobFormChange} />
-              </p>
+              </p> */}
+
+              <select value={props.interest} name="interest" onChange={props.jobFormChange} >
+                <option type="number" value="1" >1</option>
+                <option type="number" value="2">2</option>
+                <option type="number" value="3">3</option>
+                <option type="number" value="4">4</option>
+                <option type="number" value="5">5</option>
+            </select>
+
+            <br></br>
               
               <select value={props.appliedOn} name="applied_on" onChange={props.jobFormChange} >
                 <option value="LinkedIn" >LinkedIn</option>
@@ -44,6 +55,8 @@ const JobForm = (props) => {
             <br></br>
               <input type="submit" value="Submit" />
             </form>
+
+            <button onClick={props.history.goBack}>All Jobs</button>
           </div>
         );
       }

@@ -5,7 +5,7 @@ import JobForm from './components/JobForm';
 import About from './components/About'
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchJobs, autoLogin } from './redux/actionCreators';
+import { fetchJobs, autoLogin, logout } from './redux/actionCreators';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import NavBarContainer from './containers/NavBarContainer';
@@ -25,9 +25,8 @@ render() {
       {true
       ? 
         <>
+        {/* <button onClick={logout}>Log Out</button> */}
         <Switch>
-          
-          
           <Route path="/create" component={JobForm} />
           <Route path="/jobs/:id" component={JobsPage} />
           <Route path="/jobs" component={DisplayJobs} />
@@ -51,4 +50,4 @@ const mapStateToProps = (state) => ({ user: state.user });
 //   createJob: () => dispatchEvent({ type: 'CREATE_JOB' }),
 // });
 
-export default connect(mapStateToProps, { fetchJobs, autoLogin })(App);
+export default connect(mapStateToProps, { fetchJobs, autoLogin, logout })(App);

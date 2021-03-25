@@ -9,19 +9,22 @@ const nullJob = {
 };
 
 const nullJobForm = {
-  title: '',
-  dateApplied: '',
-  company: '',
-  nextSteps: '',
+  title: 'N/A',
+  date_applied: 'N/A',
+  company: 'N/A',
+  next_steps: 'It looks like your next steps field was left blank!',
   interest: 5,
   open: true,
-  appliedOn: '',
+  applied_on: 'Other',
 }
 
 const initialState = {
   jobs: [],
   selectedJob: nullJob,
-  jobForm: nullJobForm
+  jobForm: nullJobForm,
+  filtersForm: {
+    search: ""
+  } 
 };
 
 const jobsReducer = (state = initialState, action) => {
@@ -37,10 +40,13 @@ const jobsReducer = (state = initialState, action) => {
     case "ADD_JOB":
       return {...state, jobForm: {
         ...state.jobForm,
-        // if the payload's name is "content", this will update the
-        // content key in the reviewForm in state with the new payload value
         [action.payload.name]: action.payload.value
       }}
+      case "FILTERS_FORM_CHANGE":
+        return {...state, filtersForm: {
+          ...state.filtersForm,
+          [action.payload.name]: action.payload.value
+        }}
 
     default:
       return { ...state };

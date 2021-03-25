@@ -43,6 +43,7 @@ class NavBarContainer extends React.Component{
                 <li><a href="/create">Add Job</a></li>
                 <li><a href="/about">About</a></li>
                 {/* <li><a href="/logout">Logout</a></li> */}
+                
               </ul>
             </div>
         );
