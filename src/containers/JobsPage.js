@@ -15,8 +15,9 @@ class JobPage extends Component {
 
   renderPage = () => {
     return (
-      <>
-        <h1>Your Job</h1>
+      <div className="job-show">
+
+        <h1>Job Details</h1>
         <h2>{this.props.title}</h2>
         <h3>{this.props.company}</h3>
         <p>{this.props.dateApplied}</p>
@@ -25,7 +26,7 @@ class JobPage extends Component {
         <p>{this.props.appliedOn}</p>
         <p>{this.props.nextSteps}</p>
         <button onClick={this.props.history.goBack}>All Jobs</button>
-      </>
+      </div>
     );
   };
 

@@ -1,3 +1,5 @@
+//container because it has state
+
 import React from 'react';
 import {connect} from 'react-redux'
 import { handleSearchFormChange } from '../redux/actionCreators'

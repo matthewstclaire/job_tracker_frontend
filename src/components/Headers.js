@@ -1,3 +1,5 @@
+//stateless
+
 import React from 'react';
 
 

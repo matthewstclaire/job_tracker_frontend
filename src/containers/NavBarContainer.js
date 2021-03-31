@@ -1,5 +1,5 @@
 import React from 'react'
-import Tiny from "./tiny.png"
+
 // import HomeLink from '../components/navcomps/HomeLink'
 // import CreateJobLink from '../components/navcomps/CreateJobLink'
 // import JobsLink from '../components/navcomps/JobsLink'

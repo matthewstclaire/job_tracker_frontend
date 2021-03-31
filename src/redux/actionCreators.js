@@ -5,14 +5,35 @@ export const fetchJobs = () => {
     fetch('http://localhost:3000/jobs')
       .then(resp => resp.json())
       .then(jobs =>
-
         dispatch({
           type: 'SET_JOBS',
           payload: jobs,
         })
-      );
+      )
+      .catch((error) => {
+        console.error('Error:', error);
+      });    
   };
 };
+
+// export const fetchJobs = () => {
+//   return dispatch => {
+//     fetch('http://localhost:3000/jobs')
+//       .then(resp => resp.json())
+//       .then(jobs =>
+
+//         dispatch({
+//           type: 'SET_JOBS',
+//           payload: jobs,
+//         })
+//       )
+//       .catch( err => {
+//         err.text().then( errorMessage => {
+//           this.props.dispatch(displayTheError(errorMessage))
+//         })
+//       })
+//   };
+// };
 
 export const setSelectedJob = id => {
   

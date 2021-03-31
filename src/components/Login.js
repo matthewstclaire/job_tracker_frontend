@@ -1,3 +1,5 @@
+//container has state
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { toggleSignup, handleLoginFormChange, sendSignup, sendLogin } from '../redux/actionCreators'

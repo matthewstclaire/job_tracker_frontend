@@ -278,3 +278,31 @@ button_a:hover {
   .form-search {
    padding: 20px;
   }
+
+  .job-show {
+    border-radius: white;
+    
+  }
+
+  .job-form {
+    background: white;
+    width: 500px;
+    color: #2e392d;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  textarea {
+  outline: none;
+  }
+
+  input[type=submit] {
+    padding:5px 15px; 
+    background:#edab30; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    color: white;
+}
+

@@ -22,10 +22,12 @@ render() {
   return (
     <>
       <img src={Logo} alt="Tigerhead logo"/>
-      <NavBarContainer />
+      
+      {/* {this.props.user.id */}
       {true
       ? 
         <>
+        <NavBarContainer />
         {/* <button onClick={logout}>Log Out</button> */}
         <Switch>
           <Route path="/create" component={JobForm} />
