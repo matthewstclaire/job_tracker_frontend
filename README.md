@@ -1,9 +1,10 @@
 # Tiger Tracker - Job Tracker
 
 ## About
-### This is my final project for Flatiron. It is a React frontend using Redux for state management. There is basic user authentication along with reading and creating capabilities. There are many more plans for this application including eventual deployment! 
+ This is my final project for Flatiron. It is a React frontend using Redux for state management. There is basic user authentication along with reading and creating capabilities. There are many more plans for this application including eventual deployment! 
 
-### To access the Rails backend you will need to follow this link and run the server according to the instructions. 
+#### To access the Rails backend you will need to follow this link and run the server according to the instructions. 
+https://github.com/matthewstclaire/job_tracker_backend
 
 ## Install Instructions
 
