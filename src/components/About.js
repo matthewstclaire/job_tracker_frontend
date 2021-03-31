@@ -10,7 +10,13 @@ class About extends Component {
             <br/>
             <p>
            
-           Here is some information about this app and the future goals
+           This simple app serves a purpose as a jumping off point for all React apps I intend to build in the future. There are many goals I hope to accomplish. 
+
+           For now you are able to:
+           -Login
+           -Submit a Job
+           -View all jobs
+           -Search through jobs
                 
             </p>
                 

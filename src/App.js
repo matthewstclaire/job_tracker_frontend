@@ -15,7 +15,9 @@ class App extends Component {
   componentDidMount() {
     // debugger
     localStorage.token && this.props.autoLogin();
+    console.log("a")
     this.props.fetchJobs();
+    console.log("b")
   }
 
 render() {
@@ -23,8 +25,8 @@ render() {
     <>
       <img src={Logo} alt="Tigerhead logo"/>
       
-      {/* {this.props.user.id */}
-      {true
+      {this.props.user.id
+      
       ? 
         <>
         <NavBarContainer />

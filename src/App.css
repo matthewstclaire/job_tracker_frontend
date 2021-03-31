@@ -280,8 +280,11 @@ button_a:hover {
   }
 
   .job-show {
-    border-radius: white;
-    
+    background: white;
+    width: 500px;
+    color: #2e392d;
+    margin-left:auto;
+    margin-right:auto;
   }
 
   .job-form {

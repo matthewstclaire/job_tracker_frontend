@@ -2,14 +2,16 @@ export const createJob = () => ({ type: 'CREATE_JOB' });
 
 export const fetchJobs = () => {
   return dispatch => {
+    console.log("c")
     fetch('http://localhost:3000/jobs')
       .then(resp => resp.json())
-      .then(jobs =>
+      .then(jobs => {
+        console.log("d")
         dispatch({
           type: 'SET_JOBS',
           payload: jobs,
         })
-      )
+      })
       .catch((error) => {
         console.error('Error:', error);
       });    

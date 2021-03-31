@@ -7,7 +7,7 @@ import Filters from '../components/Filters'
 import JobHeader from '../components/Headers'
 
 const DisplayJobs = (props) => {
-  console.log(props.jobs)
+  
   // debugger
  
 
@@ -35,9 +35,9 @@ const searchedJobs = props.jobs.filter(job => job.company.toLowerCase().includes
   );
 };
 
-const msp = state => ({
+const mapStateToProps = state => ({
   jobs: state.jobs.jobs,
   search: state.jobs.filtersForm.search
 });
 
-export default connect(msp)(DisplayJobs);
+export default connect(mapStateToProps)(DisplayJobs);
